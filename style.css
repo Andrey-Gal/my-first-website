@@ -8,3 +8,14 @@ body {
 h1 {
   color: #007acc;
 }
+nav {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #0366d6;
+  font-weight: bold;
+}
