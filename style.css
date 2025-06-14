@@ -1,21 +1,39 @@
 body {
-  font-family: sans-serif;
+  font-family: system-ui, sans-serif;
   background-color: #f0f0f0;
-  padding: 2rem;
   color: #333;
+  margin: 0;
+  padding: 2rem;
+}
 
-}
-h1 {
-  color: #007acc;
-}
 nav {
-  background-color: #f0f0f0;
-  padding: 10px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
 }
 
 nav a {
-  margin-right: 10px;
   text-decoration: none;
-  color: #0366d6;
+  color: #007acc;
   font-weight: bold;
+  margin-right: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #e0f0ff;
+}
+
+h1 {
+  color: #007acc;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
 }
