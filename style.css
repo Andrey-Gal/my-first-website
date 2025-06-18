@@ -96,3 +96,14 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+/* Анимация появления */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
