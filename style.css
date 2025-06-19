@@ -231,3 +231,7 @@ p {
 .delay-3 { animation-delay: 0.6s; }
 .delay-4 { animation-delay: 0.8s; }
 .delay-5 { animation-delay: 1s; }
+nav a.active {
+  background-color: #007acc;
+  color: white;
+}
