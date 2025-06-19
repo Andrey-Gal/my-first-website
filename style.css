@@ -1,10 +1,11 @@
-/* Сброс отступов и базовая настройка */
+//* Сброс отступов и базовая настройка */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Базовые стили */
 body {
   font-family: system-ui, sans-serif;
   background-color: #f0f0f0;
@@ -13,6 +14,7 @@ body {
   line-height: 1.6;
 }
 
+/* Навигация */
 nav {
   background-color: #fff;
   padding: 1rem;
@@ -27,6 +29,8 @@ nav ul {
   list-style: none;
   gap: 1rem;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 nav a {
@@ -42,6 +46,11 @@ nav a:hover {
   background-color: #e0f0ff;
 }
 
+nav a.active {
+  background-color: #007acc;
+  color: white;
+}
+
 /* Заголовки и текст */
 h1 {
   color: #007acc;
@@ -54,6 +63,7 @@ p {
   font-size: 1.2rem;
   text-align: center;
   margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 /* Кнопки */
@@ -69,6 +79,9 @@ p {
   display: inline-block;
   text-align: center;
   text-decoration: none;
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem auto;
 }
 
 .button:hover {
@@ -83,6 +96,48 @@ p {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   margin: 1rem auto;
   max-width: 800px;
+  max-width: 100%;
+  word-wrap: break-word;
+  
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-5px) scale(1.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Задержки анимации для карточек */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+
+/* Анимация для карточек */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация появления для элементов с классом fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Подвал */
@@ -94,17 +149,14 @@ footer {
   color: #666;
 }
 
-/* Анимация появления */
-.fade-in {
-  animation: fadeIn 1s ease-in-out both;
+/* Контейнер */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 🔄 Адаптивность */
+/* Адаптивность */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -115,61 +167,28 @@ footer {
     padding: 0 1rem;
   }
 
-  .button {
-    width: 100%;
-    text-align: center;
-  }
-
   nav ul {
     flex-direction: column;
     align-items: center;
   }
 
   .card {
-    margin: 1rem 1rem;
+    margin: 1rem;
   }
-}
-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
+
+  .button {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 @media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
   nav a {
     margin: 0.25rem 0;
     display: block;
     width: 100%;
     text-align: center;
   }
-}
-.card {
-  max-width: 100%;
-  word-wrap: break-word;
-}
-
-.button {
-  width: 100%;
-  max-width: 300px;
-  margin: 1rem auto;
-}
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-p {
-  line-height: 1.6;
-  font-size: 1.1rem;
 }
 
 @media (max-width: 480px) {
@@ -180,58 +199,4 @@ p {
   p {
     font-size: 1rem;
   }
-}
-.fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-/* Анимация */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Задержки */
-.delay-1 {
-  animation-delay: 0.2s;
-}
-.delay-2 {
-  animation-delay: 0.4s;
-}
-.delay-3 {
-  animation-delay: 0.6s;
-}
-.delay-4 {
-  animation-delay: 0.8s;
-}
-.delay-5 {
-  animation-delay: 1s;
-}
-/* Анимация появления */
-.fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Задержки появления */
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-.delay-5 { animation-delay: 1s; }
-nav a.active {
-  background-color: #007acc;
-  color: white;
 }
