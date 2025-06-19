@@ -1,200 +1,113 @@
-/* Сброс отступов и базовая настройка */
+/* Основные сбросы */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Базовые стили */
+/* Глобальные стили */
 body {
-  font-family: system-ui, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
-  padding: 1rem;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+/* Шапка */
+header {
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  padding: 1.5rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Навигация */
 nav {
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-}
-
-nav ul {
   display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  gap: 1rem;
   justify-content: center;
-  padding: 0;
-  margin: 0;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 nav a {
+  color: white;
   text-decoration: none;
-  color: #007acc;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  background-color: #e0f0ff;
+  background: rgba(255,255,255,0.2);
 }
 
-nav a.active {
-  background-color: #007acc;
-  color: white;
+/* Основной контент */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-/* Заголовки и текст */
-h1 {
-  color: #007acc;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-p {
-  font-size: 1.2rem;
-  text-align: center;
+/* Секции */
+section {
+  background: white;
+  padding: 2rem;
   margin-bottom: 2rem;
-  line-height: 1.6;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 /* Кнопки */
-.button {
-  background-color: #007acc;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+button {
+  background: #2ecc71;
+  color: white;
   border: none;
+  padding: 0.8rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-  max-width: 300px;
-  margin: 1rem auto;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.button:hover {
-  background-color: #005fa3;
-}
-
-/* Карточки */
-.card {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 1rem auto;
-  max-width: 800px;
-  word-wrap: break-word;
-  
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-.card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px) scale(1.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Задержки анимации для карточек */
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-.delay-5 { animation-delay: 1s; }
-
-/* Анимация для карточек */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Анимация появления для элементов с классом fade-in */
-.fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button:hover {
+  background: #27ae60;
+  transform: translateY(-2px);
 }
 
 /* Подвал */
 footer {
-  margin-top: 4rem;
-  padding: 2rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Контейнер */
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
+  padding: 1.5rem;
+  background: #2c3e50;
+  color: white;
+  margin-top: 2rem;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-
-  nav ul {
+  nav {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
-
-  .card {
-    margin: 1rem;
-  }
-
-  .button {
-    width: 100%;
-    max-width: none;
+  
+  section {
+    padding: 1.5rem;
   }
 }
 
-@media (max-width: 600px) {
-  nav a {
-    margin: 0.25rem 0;
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+body {
+    text-align: center;  /* Центровка текста */
+    max-width: 800px;
+    margin: 0 auto;     /* Центровка блоков */
 }
