@@ -1,4 +1,4 @@
-//* Сброс отступов и базовая настройка */
+/* Сброс отступов и базовая настройка */
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@ nav {
   background-color: #fff;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
 
@@ -93,10 +93,9 @@ p {
   background-color: #fff;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 1rem auto;
   max-width: 800px;
-  max-width: 100%;
   word-wrap: break-word;
   
   opacity: 0;
@@ -105,10 +104,9 @@ p {
 }
 
 .card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px) scale(1.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
 }
 
 /* Задержки анимации для карточек */
