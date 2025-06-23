@@ -18,11 +18,17 @@ body {
 
 /* Шапка */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: linear-gradient(135deg, #3498db, #2c3e50);
   color: white;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
 }
+
 
 /* Навигация */
 nav {
@@ -48,9 +54,10 @@ nav a:hover {
 /* Основной контент */
 main {
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 9rem auto 2rem; /* отступ сверху увеличен */
   padding: 0 1rem;
 }
+
 
 /* Секции */
 section {
