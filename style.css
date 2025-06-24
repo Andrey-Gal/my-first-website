@@ -13,7 +13,8 @@ body {
   background-color: #f9f9f9;
   text-align: center;           /* Центровка текста */
   max-width: 800px;
-  margin: 0 auto;               /* Центровка контента */
+  margin: 0 auto;   
+  padding-top: 120px;;            /* Центровка контента */
 }
 
 /* Шапка */
@@ -108,12 +109,28 @@ footer {
 }
 
 /* Анимация появления */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+..fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
 }
+
+.fade-in.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.fade-in.delay-3 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
