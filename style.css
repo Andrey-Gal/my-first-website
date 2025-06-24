@@ -55,7 +55,7 @@ nav a:hover {
 /* Основной контент */
 main {
   max-width: 1200px;
-  margin: 9rem auto 2rem; /* отступ сверху увеличен */
+  margin: 7rem auto 2rem; /* отступ сверху увеличен */
   padding: 0 1rem;
 }
 
