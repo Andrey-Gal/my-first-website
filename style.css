@@ -11,10 +11,14 @@ body {
   line-height: 1.6;
   color: #333;
   background-color: #f9f9f9;
-  text-align: center;           /* Центровка текста */
+  text-align: center;
   max-width: 800px;
-  margin: 0 auto;   
-  padding-top: 120px;;            /* Центровка контента */
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Шапка */
@@ -30,13 +34,16 @@ header {
   z-index: 1000;
 }
 
+header h1 {
+  margin-bottom: 0.5rem;
+}
 
 /* Навигация */
 nav {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 nav a {
@@ -55,10 +62,9 @@ nav a:hover {
 /* Основной контент */
 main {
   max-width: 1200px;
-  margin: 7rem auto 2rem; /* отступ сверху увеличен */
+  margin: 7rem auto 2rem;
   padding: 0 1rem;
 }
-
 
 /* Секции */
 section {
@@ -67,6 +73,47 @@ section {
   margin-bottom: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+section img {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Карточки проектов */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background-color: #f9f9f9;
+  border-left: 5px solid #007bff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+/* Заголовки */
+.projects h2,
+section h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 /* Кнопки */
@@ -102,7 +149,7 @@ footer {
     align-items: center;
     gap: 1rem;
   }
-  
+
   section {
     padding: 1.5rem;
   }
@@ -133,47 +180,3 @@ footer {
     transform: translateY(0);
   }
 }
-html {
-  scroll-behavior: smooth;
-}
-section img {
-  margin-top: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-.projects {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .projects {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-
-.project-card {
-  background-color: #ffffff;
-  border-left: 4px solid #4a90e2; /* более мягкий синий */
-  padding: 1rem 1.5rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.projects h2 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.project-card h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
-}
-
-
