@@ -133,4 +133,47 @@ footer {
     transform: translateY(0);
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+section img {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.project-card {
+  background-color: #ffffff;
+  border-left: 4px solid #4a90e2; /* более мягкий синий */
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.projects h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.project-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
 
