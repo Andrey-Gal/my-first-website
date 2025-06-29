@@ -59,12 +59,26 @@ nav a:hover {
   background: rgba(255,255,255,0.2);
 }
 
-/* Основной контент */
 main {
   max-width: 1200px;
-  margin: 7rem auto 2rem;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: 180px 1rem 2rem; /* Увеличенный отступ сверху под шапку */
+  position: relative;
+  z-index: 1;
 }
+
+main section:first-of-type {
+  margin-top: 0; /* Убери лишний отступ */
+}
+
+
+
+button {
+  margin-top: 2rem;
+}
+
+
+
 
 /* Секции */
 section {
@@ -180,3 +194,11 @@ footer {
     transform: translateY(0);
   }
 }
+/* Адаптивность изображений */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* центрирование */
+}
+

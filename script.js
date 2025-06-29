@@ -1,6 +1,15 @@
-// Обработчик кнопки
-document.getElementById('mainButton').addEventListener('click', () => {
-    alert('Привет! Это мой первый JavaScript-код!');
-});
+// Первая кнопка — интерактив
+const magicButton = document.getElementById('magicButton');
+if (magicButton) {
+  magicButton.addEventListener('click', () => {
+    alert('✨ Магия JavaScript работает!');
+  });
+}
 
-// временное изменение для GitHub Pages
+// Вторая кнопка — приветствие
+const mainButton = document.getElementById('mainButton');
+if (mainButton) {
+  mainButton.addEventListener('click', () => {
+    alert('👋 Привет! Рад, что ты здесь!');
+  });
+}
