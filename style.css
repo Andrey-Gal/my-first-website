@@ -278,3 +278,14 @@ img {
   font-size: 0.9rem;
   color: #888;
 }
+.blog-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding: 0 0;
+}
+
+.blog-entry.active .blog-content {
+  max-height: 200px; /* достаточно для текста */
+  padding: 0.5rem 0;
+}

@@ -36,3 +36,8 @@ document.getElementById("burger").addEventListener("click", function () {
   const menu = document.getElementById("navMenu");
   menu.classList.toggle("show");
 });
+document.querySelectorAll('.blog-title').forEach(title => {
+  title.addEventListener('click', () => {
+    title.parentElement.classList.toggle('active');
+  });
+});
