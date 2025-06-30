@@ -31,3 +31,8 @@ document.getElementById("mainButton").addEventListener("click", function () {
     document.getElementById("about").appendChild(msg);
   }
 });
+// Мобильное меню
+document.getElementById("burger").addEventListener("click", function () {
+  const menu = document.getElementById("navMenu");
+  menu.classList.toggle("show");
+});
