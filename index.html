@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,17 +8,15 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-  <h1>Добро пожаловать!</h1>
-  <div class="burger" id="burger">&#9776;</div>
-  <nav id="navMenu">
-    <a href="index.html">Главная</a>
-    <a href="about.html">Обо мне</a>
-    <a href="projects.html">Проекты</a>
-  </nav>
-</header>
-
+    <h1>Добро пожаловать!</h1>
+    <div class="burger" id="burger">☰</div>
+    <nav id="nav">
+      <a href="index.html">Главная</a>
+      <a href="projects.html">Проекты</a>
+      <a href="about.html">Обо мне</a>
+    </nav>
+  </header>
 
   <main>
     <section class="fade-in delay-2">
@@ -38,42 +37,44 @@
     </section>
 
     <section class="projects">
-  <h2>Мои проекты</h2>
-  <div class="project-card">
-    <h3>Сайт-портфолио</h3>
-    <p>Мой первый сайт с HTML, CSS и JavaScript.</p>
-  </div>
-  <div class="project-card">
-    <h3>Адаптивная верстка</h3>
-    <p>Учился делать сайт красивым на всех устройствах.</p>
-  </div>
-  <div class="project-card">
-    <h3>Интерактивный JavaScript</h3>
-    <p>Добавил интерактив и эффекты.</p>
-  </div>
-</section>
+      <h2>Мои проекты</h2>
+      <div class="project-card">
+        <h3>Сайт-портфолио</h3>
+        <p>Мой первый сайт с HTML, CSS и JavaScript.</p>
+      </div>
+      <div class="project-card">
+        <h3>Адаптивная верстка</h3>
+        <p>Учился делать сайт красивым на всех устройствах.</p>
+      </div>
+      <div class="project-card">
+        <h3>Интерактивный JavaScript</h3>
+        <p>Добавил интерактив и эффекты.</p>
+      </div>
+    </section>
 
-<section class="blog fade-in delay-3">
-  <h2>Мини-блог</h2>
-  <article class="blog-post">
-    <h3>01. Мои первые шаги</h3>
-    <p>Сегодня я добавил на сайт анимации и начал работу над мини-блогом. Очень рад прогрессу!</p>
-    <time datetime="2025-06-30">30 июня 2025</time>
-  </article>
+    <section class="blog fade-in delay-3">
+      <h2>Мини-блог</h2>
+      <div class="blog-entry">
+        <div class="blog-post">
+          <h3>01. Мои первые шаги</h3>
+          <p class="blog-content">Сегодня я добавил на сайт анимации и начал работу над мини-блогом. Очень рад прогрессу!</p>
+          <time datetime="2025-06-30">30 июня 2025</time>
+        </div>
+      </div>
 
-  <article class="blog-post">
-    <h3>02. Зачем я учу фронтенд</h3>
-    <p>Фронтенд — это свобода создавать, визуализировать и воплощать идеи. Каждый день учусь чему-то новому.</p>
-    <time datetime="2025-07-01">1 июля 2025</time>
-  </article>
-</section>
-
+      <div class="blog-entry">
+        <div class="blog-post">
+          <h3>02. Зачем я учу фронтенд</h3>
+          <p class="blog-content">Фронтенд — это свобода создавать, визуализировать и воплощать идеи. Каждый день учусь чему-то новому.</p>
+          <time datetime="2025-07-01">1 июля 2025</time>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>© 2025 Андрей Галкин. Все права защищены.</p>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>

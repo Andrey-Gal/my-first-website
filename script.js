@@ -1,43 +1,59 @@
-// Первая кнопка: magicButton
-document.getElementById("magicButton").addEventListener("click", function () {
-  let existing = document.getElementById("magicMessage");
+// === Бургер-меню ===
+const burger = document.getElementById('burger');
+const nav = document.getElementById('nav');
 
-  if (existing) {
-    existing.remove(); // Удалим, если сообщение уже есть
-  } else {
-    let msg = document.createElement("p");
-    msg.id = "magicMessage";
-    msg.textContent = "✨ Магия сработала! ✨";
-    msg.style.marginTop = "1rem";
-    msg.style.fontWeight = "bold";
-    msg.style.color = "#3498db";
-    this.parentElement.appendChild(msg);
-  }
-});
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
 
-// Вторая кнопка: mainButton
-document.getElementById("mainButton").addEventListener("click", function () {
-  let existing = document.getElementById("greetingMessage");
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('show');
+    });
+  });
+}
 
-  if (existing) {
-    existing.remove();
-  } else {
-    let msg = document.createElement("p");
-    msg.id = "greetingMessage";
-    msg.textContent = "Спасибо, что нажал! Ты молодец 💪";
-    msg.style.marginTop = "1rem";
-    msg.style.fontWeight = "bold";
-    msg.style.color = "#2ecc71";
-    document.getElementById("about").appendChild(msg);
-  }
-});
-// Мобильное меню
-document.getElementById("burger").addEventListener("click", function () {
-  const menu = document.getElementById("navMenu");
-  menu.classList.toggle("show");
-});
-document.querySelectorAll('.blog-title').forEach(title => {
-  title.addEventListener('click', () => {
-    title.parentElement.classList.toggle('active');
+// === Кнопки на главной странице ===
+const magicButton = document.getElementById('magicButton');
+if (magicButton) {
+  magicButton.addEventListener('click', () => {
+    let msg = document.getElementById('magicMessage');
+    if (msg) {
+      msg.remove();
+    } else {
+      magicButton.insertAdjacentHTML('afterend', '<p id="magicMessage">✨ Магия сработала!</p>');
+    }
+  });
+}
+
+const mainButton = document.getElementById('mainButton');
+if (mainButton) {
+  mainButton.addEventListener('click', () => {
+    let msg = document.getElementById('greetingMessage');
+    if (msg) {
+      msg.remove();
+    } else {
+      mainButton.insertAdjacentHTML('afterend', '<p id="greetingMessage">Спасибо, что нажал! 💪</p>');
+    }
+  });
+}
+
+// === Анимация карточек при скролле ===
+const cards = document.querySelectorAll('.project-card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach(card => observer.observe(card));
+
+// === Активация мини-блога ===
+document.querySelectorAll('.blog-entry').forEach(entry => {
+  entry.addEventListener('click', () => {
+    entry.classList.toggle('active');
   });
 });
