@@ -1,6 +1,6 @@
 // === Бургер-меню ===
 const burger = document.getElementById('burger');
-const nav = document.getElementById('nav');
+const nav = document.querySelector('nav');
 
 if (burger && nav) {
   burger.addEventListener('click', () => {
@@ -41,15 +41,17 @@ if (mainButton) {
 
 // === Анимация карточек при скролле ===
 const cards = document.querySelectorAll('.project-card');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
 
-cards.forEach(card => observer.observe(card));
+  cards.forEach(card => observer.observe(card));
+}
 
 // === Активация мини-блога ===
 document.querySelectorAll('.blog-entry').forEach(entry => {
@@ -57,12 +59,3 @@ document.querySelectorAll('.blog-entry').forEach(entry => {
     entry.classList.toggle('active');
   });
 });
-// Бургер-меню универсально для всех страниц
-const burger = document.getElementById('burger');
-const nav = document.querySelector('nav');
-if (burger && nav) {
-  burger.addEventListener('click', () => nav.classList.toggle('show'));
-  nav.querySelectorAll('a').forEach(a =>
-    a.addEventListener('click', () => nav.classList.remove('show'))
-  );
-}
