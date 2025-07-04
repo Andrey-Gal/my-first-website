@@ -57,3 +57,12 @@ document.querySelectorAll('.blog-entry').forEach(entry => {
     entry.classList.toggle('active');
   });
 });
+// Бургер-меню универсально для всех страниц
+const burger = document.getElementById('burger');
+const nav = document.querySelector('nav');
+if (burger && nav) {
+  burger.addEventListener('click', () => nav.classList.toggle('show'));
+  nav.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => nav.classList.remove('show'))
+  );
+}
