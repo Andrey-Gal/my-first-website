@@ -1,6 +1,6 @@
 // === Бургер-меню ===
 const burger = document.getElementById('burger');
-const nav = document.querySelector('nav');
+const nav = document.getElementById('nav');
 
 if (burger && nav) {
   burger.addEventListener('click', () => {
@@ -14,7 +14,7 @@ if (burger && nav) {
   });
 }
 
-// === Кнопки на главной странице ===
+// === Кнопки на главной ===
 const magicButton = document.getElementById('magicButton');
 if (magicButton) {
   magicButton.addEventListener('click', () => {
@@ -38,24 +38,3 @@ if (mainButton) {
     }
   });
 }
-
-// === Анимация карточек при скролле ===
-const cards = document.querySelectorAll('.project-card');
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  cards.forEach(card => observer.observe(card));
-}
-
-// === Активация мини-блога ===
-document.querySelectorAll('.blog-entry').forEach(entry => {
-  entry.addEventListener('click', () => {
-    entry.classList.toggle('active');
-  });
-});
