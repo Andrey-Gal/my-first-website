@@ -1,138 +1,44 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Сброс */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:Arial,sans-serif;background:#f0f0f0;text-align:center;padding-top:120px;color:#333;}
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  padding-top: 100px;
-  text-align: center;
-}
+/* Шапка и меню */
+header{position:fixed;top:0;width:100%;background:linear-gradient(135deg,#4facfe,#00f2fe);padding:1rem;z-index:1000;display:flex;align-items:center;justify-between;}
+header h1{color:#fff;flex:1;text-align:left;}
+.burger{display:none;font-size:2rem;color:#fff;cursor:pointer;margin-left:auto;}
+nav{display:flex;gap:1rem;}
+nav a{color:#fff;text-decoration:none;padding:.5rem 1rem;border-radius:4px;}
+nav a:hover{background:rgba(255,255,255,0.2);}
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to right, #3498db, #2c3e50);
-  color: white;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-}
+/* Основной контент */
+main{max-width:1200px;margin:0 auto;padding:2rem;}
+section{background:#fff;padding:2rem;margin:1rem 0;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
 
-nav {
-  display: flex;
-  gap: 1rem;
-}
+/* Центрирование фото */
+.photo-container{display:flex;justify-content:center;margin-bottom:1rem;}
+.photo-container img{max-width:100%;height:auto;border-radius:10px;}
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+/* Анимации */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+.project-card{opacity:0;transform:translateY(30px);animation:fadeUpCard .8s ease forwards;}
+@keyframes fadeUpCard{to{opacity:1;transform:translateY(0);}}
+.project-card:nth-child(1){animation-delay:.2s;}
+.project-card:nth-child(2){animation-delay:.4s;}
+.project-card:nth-child(3){animation-delay:.6s;}
 
-.burger {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-}
+/* Мини-блог */
+.blog-entry{background:#fff;border-left:4px solid #3498db;padding:1rem;margin-bottom:1rem;overflow:hidden;cursor:pointer;transition:max-height .5s,padding .3s;}
+.blog-content{max-height:0;padding:0;}
+.blog-entry.active .blog-content{max-height:200px;padding:.5rem 0;}
 
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
+/* Подвал */
+footer{padding:1rem;background:#2c3e50;color:#fff;border-top:4px solid #00f2fe;margin-top:2rem;}
 
-.project-card {
-  background: #fff;
-  padding: 1rem;
-  margin: 1rem 0;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  border-left: 5px solid #3498db;
-}
-
-footer {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: #2c3e50;
-  color: white;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-/* Бургер для мобильных */
-@media (max-width: 768px) {
-  .burger {
-    display: block;
-  }
-
-  nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #2c3e50;
-    width: 100%;
-    flex-direction: column;
-    display: none;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  nav a {
-    padding: 1rem;
-  }
-}
-
-button {
-  position: relative;
-  overflow: hidden;
-}
-
-.wave {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple 0.6s linear;
-  pointer-events: none;
-}
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-img {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-img.visible {
-  opacity: 1;
-}
-
-body.dark-mode {
-  background: #1e1e2f;
-  color: #ccc;
-}
-body.dark-mode header {
-  background: #2b2b44;
-}
-body.dark-mode footer {
-  background: #2b2b44;
-}
-body.dark-mode section {
-  background: #2a2a3e;
+/* Мобильный бургер */
+@media(max-width:768px){
+  .burger{display:block;}
+  nav{position:absolute;top:100%;left:0;width:100%;flex-direction:column;background:#2c3e50;transform:translateY(-200%);transition:transform .3s;}
+  nav.show{transform:translateY(0);}
 }
