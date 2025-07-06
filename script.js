@@ -1,5 +1,6 @@
-// Анимации при скролле
+// === 1. Анимации при скролле (элементы появляются плавно) ===
 const fadeIns = document.querySelectorAll('.fade-in');
+
 window.addEventListener('scroll', () => {
   fadeIns.forEach(el => {
     const top = el.getBoundingClientRect().top;
@@ -9,36 +10,51 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Кнопка "магия"
-document.getElementById('magicButton')?.addEventListener('click', () => {
-  alert('✨ Магия работает! ✨');
-});
+// === 2. Кнопка "Магия работает!" (на главной странице) ===
+const magicButton = document.getElementById('magicButton');
+if (magicButton) {
+  magicButton.addEventListener('click', () => {
+    alert('✨ Магия работает! ✨');
+  });
+}
 
-// Мини-блог раскрытие
+// === 3. Мини-блог: разворачивает/сворачивает контент при клике ===
 document.querySelectorAll('.blog-entry').forEach(entry => {
   entry.addEventListener('click', () => {
     entry.classList.toggle('active');
   });
 });
 
-// Бургер-меню
+// === 4. Бургер-меню для мобильных устройств ===
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 
-burger?.addEventListener('click', () => {
-  nav.classList.toggle('show');
-});
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
 
-// Темная тема
+  // Закрываем меню при переходе по ссылке
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('show');
+    });
+  });
+}
+
+// === 5. Переключатель темы (светлая / тёмная) ===
 const themeToggle = document.createElement('div');
 themeToggle.innerHTML = '🌙';
+themeToggle.title = 'Переключить тему';
 themeToggle.style.cursor = 'pointer';
 themeToggle.style.fontSize = '1.5rem';
 themeToggle.style.marginRight = '1rem';
-themeToggle.title = 'Переключить тему';
+themeToggle.style.userSelect = 'none';
 
+// Обработчик события по клику на иконку
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
 
+// Добавляем иконку переключения темы в шапку
 document.querySelector('header')?.prepend(themeToggle);
