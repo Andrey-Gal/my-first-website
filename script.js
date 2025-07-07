@@ -1,4 +1,4 @@
-// === 1. Анимации при скролле (элементы появляются плавно) ===
+// Анимации при скролле
 const fadeIns = document.querySelectorAll('.fade-in');
 
 window.addEventListener('scroll', () => {
@@ -10,22 +10,41 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// === 2. Кнопка "Магия работает!" (на главной странице) ===
+// Сразу запускаем анимацию при загрузке страницы
+window.dispatchEvent(new Event('scroll'));
+
+
+// Кнопка "Магия"
 const magicButton = document.getElementById('magicButton');
 if (magicButton) {
   magicButton.addEventListener('click', () => {
-    alert('✨ Магия работает! ✨');
+    const magicMsg = document.createElement('p');
+    magicMsg.textContent = '✨ Магия работает! ✨';
+    magicMsg.style.marginTop = '1rem';
+    magicButton.insertAdjacentElement('afterend', magicMsg);
   });
 }
 
-// === 3. Мини-блог: разворачивает/сворачивает контент при клике ===
+// Вторая кнопка — "Привет!"
+const mainButton = document.getElementById('mainButton');
+if (mainButton) {
+  mainButton.addEventListener('click', () => {
+    const msg = document.createElement('p');
+    msg.textContent = '👋 Привет из JS!';
+    msg.style.marginTop = '1rem';
+    mainButton.insertAdjacentElement('afterend', msg);
+  });
+}
+
+
+// Мини-блог
 document.querySelectorAll('.blog-entry').forEach(entry => {
   entry.addEventListener('click', () => {
     entry.classList.toggle('active');
   });
 });
 
-// === 4. Бургер-меню для мобильных устройств ===
+// Бургер-меню
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 
@@ -34,7 +53,6 @@ if (burger && nav) {
     nav.classList.toggle('show');
   });
 
-  // Закрываем меню при переходе по ссылке
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('show');
@@ -42,19 +60,16 @@ if (burger && nav) {
   });
 }
 
-// === 5. Переключатель темы (светлая / тёмная) ===
+// Темная тема
 const themeToggle = document.createElement('div');
 themeToggle.innerHTML = '🌙';
 themeToggle.title = 'Переключить тему';
 themeToggle.style.cursor = 'pointer';
 themeToggle.style.fontSize = '1.5rem';
 themeToggle.style.marginRight = '1rem';
-themeToggle.style.userSelect = 'none';
 
-// Обработчик события по клику на иконку
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
 
-// Добавляем иконку переключения темы в шапку
 document.querySelector('header')?.prepend(themeToggle);
