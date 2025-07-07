@@ -1,4 +1,4 @@
-/* Сброс отступов и стандартных стилей */
+/* Сброс отступов */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +9,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Базовые стили для всего тела страницы */
 body {
   font-family: Arial, sans-serif;
   background: #f0f0f0;
@@ -19,7 +18,7 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* 🌙 Темная тема */
+/* Темная тема */
 body.dark {
   background: #1e1e1e;
   color: #f0f0f0;
@@ -35,7 +34,21 @@ body.dark footer {
   border-top: 4px solid #00f2fe;
 }
 
-/* 🧢 Шапка */
+
+
+/* Цвет текста внутри карточек в темной теме */
+body.dark .project-card,
+body.dark .blog-entry {
+  color: #111;
+}
+
+/* Цвет текста в кнопках в темной теме */
+body.dark button {
+  color: #111;
+}
+
+
+/* Шапка */
 header {
   position: fixed;
   top: 0;
@@ -53,7 +66,7 @@ header h1 {
   font-size: 1.5rem;
 }
 
-/* 🍔 Бургер-меню */
+/* Бургер-меню */
 .burger {
   display: none;
   font-size: 2rem;
@@ -62,7 +75,7 @@ header h1 {
   margin-left: auto;
 }
 
-/* 🔗 Навигация */
+/* Навигация */
 nav {
   display: flex;
   gap: 1rem;
@@ -79,14 +92,13 @@ nav a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* 📦 Основной контент */
+/* Основной контент */
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-/* 📄 Секции-карточки */
 section {
   background: #fff;
   padding: 2rem;
@@ -95,7 +107,7 @@ section {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 🖼 Центрирование изображений */
+/* Центрирование фото */
 .photo-container {
   display: flex;
   justify-content: center;
@@ -108,7 +120,7 @@ section {
   border-radius: 10px;
 }
 
-/* ✨ Анимации появления */
+/* Анимации */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -120,11 +132,15 @@ section {
   transform: translateY(0);
 }
 
-/* 📋 Проекты с задержкой появления */
 .project-card {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUpCard 0.8s ease forwards;
+  background: #fff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeUpCard {
@@ -134,19 +150,11 @@ section {
   }
 }
 
-.project-card:nth-child(1) {
-  animation-delay: 0.2s;
-}
+.project-card:nth-child(1) { animation-delay: 0.2s; }
+.project-card:nth-child(2) { animation-delay: 0.4s; }
+.project-card:nth-child(3) { animation-delay: 0.6s; }
 
-.project-card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.project-card:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-/* 📝 Мини-блог */
+/* Мини-блог */
 .blog-entry {
   background: #fff;
   border-left: 4px solid #3498db;
@@ -160,6 +168,8 @@ section {
 .blog-content {
   max-height: 0;
   padding: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
 }
 
 .blog-entry.active .blog-content {
@@ -167,7 +177,7 @@ section {
   padding: 0.5rem 0;
 }
 
-/* 👣 Подвал */
+/* Подвал */
 footer {
   padding: 1rem;
   background: #2c3e50;
@@ -176,7 +186,7 @@ footer {
   margin-top: 2rem;
 }
 
-/* 📱 Мобильная адаптация */
+/* Мобильная адаптация */
 @media (max-width: 768px) {
   .burger {
     display: block;
