@@ -74,14 +74,21 @@ themeToggle.addEventListener('click', () => {
 
 document.querySelector('header')?.prepend(themeToggle);
 
-// Модальное окно
+// Модальное окно (исправленный код)
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
 const modalDesc = document.getElementById("modal-description");
 const closeModal = document.querySelector(".modal-close");
 
 document.querySelectorAll(".project-card").forEach(card => {
-  card.addEventListener("click", () => {
+  card.addEventListener("click", (e) => {
+    // Если клик по ссылке внутри карточки, модальное окно не открываем
+    if (e.target.tagName === 'A') return;
+
+    const link = card.querySelector('a');
+    // Проверяем, есть ли у ссылки класс no-modal, если есть — модальное не открывать
+    if (link && link.classList.contains('no-modal')) return;
+
     const img = card.querySelector("img");
     const desc = card.querySelector("p");
 
