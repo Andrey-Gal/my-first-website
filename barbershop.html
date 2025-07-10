@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Шапка с меню -->
   <header>
     <h1>Barbershop</h1>
     <div class="burger" id="burger">☰</div>
@@ -18,77 +17,54 @@
     </nav>
   </header>
 
-  <!-- Основное содержимое -->
   <main>
     <section class="fade-in">
       <h2>Сайт Барбершопа</h2>
       <img src="./images/barbtrshop.jpg" alt="Сайт Барбершопа" class="project-image" />
 
-      <h3>Описание проекта</h3>
-      <p>
-        Здесь будет подробное описание твоего проекта Barbershop: какие технологии используются, цели проекта, особенности дизайна, функционал и т.д.
-      </p>
-
-      <h3>Что будет реализовано:</h3>
+      <h3>Наши услуги</h3>
       <ul>
-        <li>Адаптивная вёрстка для телефонов и компьютеров.</li>
-        <li>Удобное меню навигации и бургер-меню.</li>
-        <li>Фотогалерея и список услуг.</li>
-        <li>Форма записи на стрижку онлайн.</li>
-        <li>Интерактивные элементы (слайдер, анимация).</li>
+        <li><strong>Мужская стрижка:</strong> 1200 ₽</li>
+        <li><strong>Оформление бороды:</strong> 800 ₽</li>
+        <li><strong>Бритьё опасной бритвой:</strong> 1000 ₽</li>
+        <li><strong>Детская стрижка:</strong> 700 ₽</li>
+        <li><strong>Комплекс "Стрижка + Борода":</strong> 1800 ₽</li>
       </ul>
 
-      <h3>Этапы разработки:</h3>
-      <div class="services">
-  <h3>Наши услуги</h3>
-  <div class="booking-form">
-  <h3>Запись на стрижку</h3>
-  <form>
-    <label for="name">Имя:</label>
-    <input type="text" id="name" name="name" placeholder="Ваше имя" required />
+      <div class="booking-form">
+        <h3>Запись на стрижку</h3>
+        <form id="booking-form">
+  <label for="name">Имя:</label>
+  <input type="text" id="name" name="name" required placeholder="Ваше имя" />
 
-    <label for="phone">Телефон:</label>
-    <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+  <label for="phone">Телефон:</label>
+  <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" />
 
-    <label for="service">Услуга:</label>
-    <select id="service" name="service" required>
-      <option value="">Выберите услугу</option>
-      <option>Мужская стрижка</option>
-      <option>Оформление бороды</option>
-      <option>Бритьё опасной бритвой</option>
-      <option>Детская стрижка</option>
-      <option>Комплекс "Стрижка + Борода"</option>
-    </select>
+  <label for="service">Услуга:</label>
+  <select id="service" name="service" required>
+    <option value="">Выберите услугу</option>
+    <option>Мужская стрижка</option>
+    <option>Оформление бороды</option>
+    <option>Бритьё опасной бритвой</option>
+    <option>Детская стрижка</option>
+    <option>Комплекс "Стрижка + Борода"</option>
+  </select>
 
-    <button type="submit">Записаться</button>
-  </form>
-</div>
+  <button type="submit">Записаться</button>
+</form>
 
-  <ul>
-    <li><strong>Мужская стрижка:</strong> 1200 ₽</li>
-    <li><strong>Оформление бороды:</strong> 800 ₽</li>
-    <li><strong>Бритьё опасной бритвой:</strong> 1000 ₽</li>
-    <li><strong>Детская стрижка:</strong> 700 ₽</li>
-    <li><strong>Комплекс "Стрижка + Борода":</strong> 1800 ₽</li>
-  </ul>
-</div>
-
-      <ol>
-        <li>Создание HTML-структуры сайта (на этом этапе мы сейчас).</li>
-        <li>Написание стилей CSS для дизайна.</li>
-        <li>Добавление интерактивности с JavaScript.</li>
-        <li>Адаптация под разные устройства.</li>
-      </ol>
+      </div>
 
       <a href="projects.html" class="btn">Назад к проектам</a>
     </section>
   </main>
 
-  <!-- Подвал -->
   <footer>
     <p>© 2025 Андрей Галкин. Все права защищены.</p>
   </footer>
 
+  <!-- Подключаем скрипты -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
