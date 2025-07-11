@@ -388,3 +388,49 @@ footer {
 .booking-form button:hover {
   background-color: #005fd1;
 }
+
+/* === Пасхалка: секретная кнопка === */
+#secretButton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #222;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+#secretButton:hover {
+  opacity: 1;
+}
+
+#secretMessage {
+  position: fixed;
+  bottom: 60px;
+  right: 10px;
+  background: #fff;
+  color: #333;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: bold;
+  display: none;
+  animation: popIn 0.4s ease;
+  z-index: 9999;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

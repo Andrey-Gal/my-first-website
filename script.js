@@ -139,3 +139,23 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// === Пасхалка: секретная кнопка ===
+const secretButton = document.createElement('button');
+secretButton.id = 'secretButton';
+secretButton.textContent = '✨';
+document.body.appendChild(secretButton);
+
+const secretMessage = document.createElement('div');
+secretMessage.id = 'secretMessage';
+secretMessage.textContent = 'Ты нашёл секрет сайта!';
+document.body.appendChild(secretMessage);
+
+secretButton.addEventListener('click', () => {
+  if (secretMessage.style.display === 'none' || secretMessage.style.display === '') {
+    secretMessage.style.display = 'block';
+    setTimeout(() => {
+      secretMessage.style.display = 'none';
+    }, 3000); // скрывается через 3 секунды
+  }
+});
