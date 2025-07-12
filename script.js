@@ -159,3 +159,17 @@ secretButton.addEventListener('click', () => {
     }, 3000); // скрывается через 3 секунды
   }
 });
+
+// === Цитата дня ===
+const quotes = [
+  "Каждый эксперт когда-то был новичком.",
+  "Лучший способ научиться — начать делать.",
+  "Ошибка — это ещё одна ступень к знанию.",
+  "Код — это поэзия в логике.",
+  "Пока другие мечтают — ты коммитишь!"
+];
+
+const quoteBox = document.createElement('div');
+quoteBox.id = 'dailyQuote';
+quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+document.body.appendChild(quoteBox);
