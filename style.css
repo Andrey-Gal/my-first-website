@@ -456,3 +456,19 @@ footer {
   z-index: 9999;
   max-width: 300px;
 }
+
+/* === Анимация заголовка === */
+h1 {
+  animation: colorFade 3s infinite alternate;
+}
+
+@keyframes colorFade {
+  from {
+    color: #3498db;
+    transform: scale(1);
+  }
+  to {
+    color: #e74c3c;
+    transform: scale(1.1);
+  }
+}
