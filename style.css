@@ -147,7 +147,13 @@ section {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
+  transition: transform 0.3s ease;
 }
+
+.photo-container img:hover {
+  transform: scale(1.05);
+}
+
 
 /* Анимации */
 .fade-in {
