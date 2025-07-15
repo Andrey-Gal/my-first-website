@@ -204,6 +204,14 @@ section {
   background-color: #00f2fe;
 }
 
+.project-card:hover {
+  background-color: #d4edda;           /* мягкий зелёный  */
+  box-shadow: 0 8px 20px rgba(40,167,69,.3);
+  transition: background-color .3s ease, box-shadow .3s ease;
+}
+
+
+
 
 /* Мини-блог */
 .blog-entry {
