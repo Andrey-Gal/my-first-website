@@ -10,27 +10,36 @@ window.addEventListener('scroll', () => {
 });
 window.dispatchEvent(new Event('scroll'));
 
-// === Кнопка "Магия" ===
+// === Кнопка "Магия" (один раз) ===
 const magicButton = document.getElementById('magicButton');
 if (magicButton) {
   magicButton.addEventListener('click', () => {
+    // если абзац уже есть — ничего не создаём
+    if (document.getElementById('magicMsg')) return;
+
     const msg = document.createElement('p');
+    msg.id = 'magicMsg';                   // уникальный id
     msg.textContent = '✨ Магия работает! ✨';
     msg.style.marginTop = '1rem';
     magicButton.insertAdjacentElement('afterend', msg);
   });
 }
 
-// === Кнопка "Привет" ===
+
+// === Кнопка "Привет" (один раз) ===
 const mainButton = document.getElementById('mainButton');
 if (mainButton) {
   mainButton.addEventListener('click', () => {
+    if (document.getElementById('greetMsg')) return;   // уже есть?
+
     const msg = document.createElement('p');
+    msg.id = 'greetMsg';               // уникальный id
     msg.textContent = '👋 Привет из JS!';
     msg.style.marginTop = '1rem';
     mainButton.insertAdjacentElement('afterend', msg);
   });
 }
+
 
 // === Мини-блог ===
 document.querySelectorAll('.blog-entry').forEach(entry => {
@@ -173,3 +182,28 @@ const quoteBox = document.createElement('div');
 quoteBox.id = 'dailyQuote';
 quoteBox.textContent = quotes[Math.floor(Math.random() * quotes.length)];
 document.body.appendChild(quoteBox);
+
+(function () {
+  // страницы, где нужна стрелка
+  const pagesWithArrow = ['', 'index.html', 'projects.html'];
+  //  ↑ добавили ''   ^               ^
+
+  const lastPart = location.pathname.split('/').pop() || 'index.html';
+
+  if (!pagesWithArrow.includes(lastPart)) return;
+
+  /* --- код стрелки --- */
+  const btn = document.createElement('button');
+  btn.id = 'backToTop';
+  btn.innerHTML = '↑';
+  document.body.appendChild(btn);
+
+  const threshold = document.body.scrollHeight / 2;  // половина контента
+window.addEventListener('scroll', () => {
+  btn.classList.toggle('show', window.scrollY > threshold);
+});
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
