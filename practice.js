@@ -19,3 +19,17 @@ function greet(name) {
 console.log('isEven(4) →', isEven(4));   // true
 console.log('max(10, 7) →', max(10, 7)); // 10
 greet('Андрей');                         // 👋 Привет, Андрей!
+
+function greet(name) {
+  console.log(`👋 Привет, ${name}!`);
+}
+
+greet('Андрей');   // вызов
+greet('Сергей');
+
+function square(n) {
+  return n * n;
+}
+
+console.log(square(5));   // 25
+console.log(square(12));  // 144
