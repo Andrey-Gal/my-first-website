@@ -1,35 +1,53 @@
-// === Урок 1: базовые функции ===
+(function () {
+  const valueEl  = document.getElementById('pcValue');
+  const incBtn   = document.getElementById('pcInc');
+  const decBtn   = document.getElementById('pcDec');
+  const resetBtn = document.getElementById('pcReset');
+  const lastEl   = document.getElementById('pcLast');
 
-// 1. isEven(n) — true, если n чётное
-function isEven(n) {
-  return n % 2 === 0;
-}
+  // Проверяем базовые элементы
+  if (!valueEl || !incBtn || !resetBtn) return;
 
-// 2. max(a, b) — большее из двух чисел
-function max(a, b) {
-  return a > b ? a : b;
-}
+  // ---- Состояние ----
+  let count = Number(localStorage.getItem('persistCount') || 0);
+  valueEl.textContent = count;
 
-// 3. greet(name) — выводит приветствие
-function greet(name) {
-  console.log(`👋 Привет, ${name}!`);
-}
+  // ---- Метка времени ----
+  function updateLast() {
+    if (!lastEl) return;
+    const now = new Date();
+    lastEl.textContent = 'Последнее изменение: ' + now.toLocaleString('ru-RU');
+  }
 
-/* --- Тесты --- */
-console.log('isEven(4) →', isEven(4));   // true
-console.log('max(10, 7) →', max(10, 7)); // 10
-greet('Андрей');                         // 👋 Привет, Андрей!
+  // (если хочешь сохранять время — можно хранить и доставать, пока просто генерим заново)
+  updateLast();
 
-function greet(name) {
-  console.log(`👋 Привет, ${name}!`);
-}
+  // ---- Обновление + сохранение ----
+  function sync() {
+    valueEl.textContent = count;
+    localStorage.setItem('persistCount', count);
+    updateLast();
+  }
 
-greet('Андрей');   // вызов
-greet('Сергей');
+  // +1
+  incBtn.addEventListener('click', () => {
+    count++;
+    sync();
+  });
 
-function square(n) {
-  return n * n;
-}
+  // -1 (если есть кнопка)
+  if (decBtn) {
+    decBtn.addEventListener('click', () => {
+      if (count > 0) {
+        count--;
+        sync();
+      }
+    });
+  }
 
-console.log(square(5));   // 25
-console.log(square(12));  // 144
+  // Сброс
+  resetBtn.addEventListener('click', () => {
+    count = 0;
+    sync();
+  });
+})();
