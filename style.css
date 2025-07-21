@@ -808,3 +808,72 @@ body.dark .confirmation
   border: 1px solid #4caf50;
 }
 
+/* === СТИЛИ ФОРМЫ — светлая + тёмная тема === */
+.booking-form {
+  padding: 2rem;
+  background-color: #2c2c2c;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #444;
+  color: #eee;
+  transition: 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  outline: 2px solid #00bfff;
+  background-color: #555;
+}
+
+.booking-form button {
+  padding: 0.9rem 2rem;
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.booking-form button:hover {
+  background-color: #008ecc;
+}
+
+/* === Подтверждение === */
+.booking-form .confirmation {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #e1ffe8;
+  color: #2a902a;
+  border: 1px solid #7ee487;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+body.dark .booking-form .confirmation {
+  background-color: #111;
+  color: #8aff8a;
+  border: 1px solid #4caf50;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
