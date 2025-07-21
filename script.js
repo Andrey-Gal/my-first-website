@@ -207,3 +207,48 @@ window.addEventListener('scroll', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
+
+// === Счётчик на about.html с сохранением ===
+document.addEventListener("DOMContentLoaded", () => {
+  const valueEl = document.getElementById("pcValue");
+  const incBtn = document.getElementById("pcInc");
+  const decBtn = document.getElementById("pcDec");
+  const resetBtn = document.getElementById("pcReset");
+  const lastUpdate = document.getElementById("pcLast");
+
+  if (!valueEl || !incBtn || !decBtn || !resetBtn || !lastUpdate) return;
+
+  function animateChange(type) {
+    valueEl.classList.add("flash", type);
+    setTimeout(() => valueEl.classList.remove("flash", type), 400);
+  }
+
+  function updateCounter(val) {
+    localStorage.setItem("persistCounter", val);
+    valueEl.textContent = val;
+    lastUpdate.textContent = "Последнее изменение: " + new Date().toLocaleString();
+  }
+
+  function getStoredValue() {
+    return parseInt(localStorage.getItem("persistCounter")) || 0;
+  }
+
+  incBtn.addEventListener("click", () => {
+    const val = getStoredValue() + 1;
+    updateCounter(val);
+    animateChange("up");
+  });
+
+  decBtn.addEventListener("click", () => {
+    const val = getStoredValue() - 1;
+    updateCounter(val);
+    animateChange("down");
+  });
+
+  resetBtn.addEventListener("click", () => {
+    updateCounter(0);
+    animateChange("reset");
+  });
+
+  updateCounter(getStoredValue());
+});

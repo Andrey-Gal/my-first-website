@@ -561,3 +561,24 @@ h1 {
   85% { color: violet; }
   100% { color: red; }
 }
+
+#pcValue.flash.up {
+  color: green;
+  font-weight: bold;
+  transform: scale(1.3);
+  transition: all 0.3s;
+}
+
+#pcValue.flash.down {
+  color: red;
+  font-weight: bold;
+  transform: scale(1.3);
+  transition: all 0.3s;
+}
+
+#pcValue.flash.reset {
+  color: orange;
+  font-weight: bold;
+  transform: scale(1.3);
+  transition: all 0.3s;
+}
