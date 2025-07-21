@@ -237,13 +237,34 @@ section {
 }
 
 /* Подвал */
+/* === Подвал === */
 footer {
-  padding: 1rem;
-  background: #2c3e50;
-  color: #fff;
-  border-top: 4px solid #00f2fe;
-  margin-top: 2rem;
+  background: #f0f0f0;
+  color: #222;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: background-color 0.4s, color 0.4s;
 }
+
+footer:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+/* === Тёмная тема для подвала === */
+body.dark footer {
+  background-color: #111;
+  color: #aaa;
+}
+
+body.dark footer:hover {
+  background-color: #222;
+  color: #fff;
+}
+
+
+
 
 /* Мобильная адаптация */
 @media (max-width: 768px) {
@@ -658,3 +679,132 @@ main.fade-in p {
   color: #666;
   margin-bottom: 0.5rem;
 }
+
+/* === Навигация с плавным наведением === */
+nav a {
+  text-decoration: none;
+  color: #222;
+  margin: 0 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #333;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Подвал с мягкой заливкой */
+footer {
+  background: #f1f1f1;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  transition: background-color 0.3s;
+}
+
+footer:hover {
+  background: #e6e6e6;
+}
+
+/* Заголовок h1 */
+header h1 {
+  font-size: 1.8rem;
+  color: #444;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+header h1:hover {
+  transform: scale(1.05);
+}
+
+/* === Стили блока "Обо мне" в тёмной теме === */
+body.dark main section {
+  color: #eee; /* Светлый текст по умолчанию */
+}
+body.dark main section h2 {
+  color: #fff;
+}
+body.dark main section p {
+  color: #ccc;
+}
+
+/* === Мини-блог: тёмная тема === */
+body.dark .blog-entry {
+  background-color: #222; /* тёмный фон */
+  color: #eee; /* основной текст */
+  border-color: #00cfff; /* подчёркивающая линия слева */
+}
+
+
+
+/* === Мини-блог: улучшенные стили в тёмной теме === */
+body.dark .blog-entry h3 {
+  color: #fff;
+}
+
+body.dark .blog-content {
+  color: #aaa;
+}
+
+body.dark .blog-entry.active .blog-content {
+  color: #fff;
+}
+
+body.dark .blog-entry time {
+  color: #ccc;
+}
+
+/* === Темная тема: форма записи === */
+body.dark .booking-form {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+}
+
+body.dark .booking-form input,
+body.dark .booking-form select {
+  background-color: #444;
+  color: #f0f0f0;
+  border: 1px solid #666;
+}
+
+body.dark .booking-form input::placeholder {
+  color: #aaa;
+}
+
+body.dark .booking-form label {
+  color: #eee;
+}
+
+body.dark .booking-form button {
+  background-color: #00aaff;
+  color: #fff;
+}
+
+body.dark .booking-form button:hover {
+  background-color: #0088cc;
+}
+
+body.dark .confirmation
+ {
+  background-color: #1f1f1f;
+  color: #a8ffa8;
+  border: 1px solid #4caf50;
+}
+

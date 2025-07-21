@@ -135,13 +135,12 @@ window.addEventListener('DOMContentLoaded', () => {
       }
 
       const confirmation = document.createElement('p');
-      confirmation.id = 'confirmation-message';
+confirmation.id = 'confirmation-message';
+confirmation.className = 'confirmation';
+
       confirmation.textContent = `Спасибо, ${nameValue}! Вы записались на "${serviceValue}". Мы свяжемся с вами по номеру ${phoneValue}.`;
-      confirmation.style.marginTop = '1rem';
-      confirmation.style.padding = '1rem';
-      confirmation.style.backgroundColor = '#e6f7ff';
-      confirmation.style.border = '1px solid #91d5ff';
-      confirmation.style.borderRadius = '8px';
+      confirmation.classList.add('confirmation');
+
 
       bookingForm.after(confirmation);
       bookingForm.reset();
