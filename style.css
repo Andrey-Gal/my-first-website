@@ -129,6 +129,59 @@ nav a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.nav-links {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #111;
+  color: white;
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  visibility: hidden; /* вот это ключ */
+}
+
+.nav-links.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Анимация для пунктов меню по одному */
+/* Анимация для пунктов меню по одному */
+.nav-links li {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+nav.show .nav-links li {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+nav.show .nav-links li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+nav.show .nav-links li:nth-child(2) {
+  transition-delay: 0.2s;
+}
+nav.show .nav-links li:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+
 /* Основной контент */
 main {
   max-width: 1200px;
