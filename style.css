@@ -129,31 +129,41 @@ nav a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
+
 .nav-links {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #111;
-  color: white;
-  z-index: 1000;
-  flex-direction: column;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
   align-items: center;
-  padding: 1rem 0;
-
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none;
-  visibility: hidden; /* вот это ключ */
 }
 
-.nav-links.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  visibility: visible;
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+  }
 }
+
+
 
 /* Анимация для пунктов меню по одному */
 /* Анимация для пунктов меню по одному */
@@ -164,11 +174,12 @@ nav a:hover {
   pointer-events: none;
 }
 
-nav.show .nav-links li {
+.nav-links.active li {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+
 
 
 nav.show .nav-links li:nth-child(1) {
@@ -899,4 +910,70 @@ body.light .booking-form h3 {
 /* Тёмная тема заголовка формы */
 body.dark .booking-form h3 {
   color: #fff;
+}
+
+/* === Бургер и навигация === */
+.burger {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  font-weight: bold;
+}
+
+/* Подчеркивание при наведении */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: yellow;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* === Мобильная версия === */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: #fff;
+  }
 }

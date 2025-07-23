@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 // === Анимации при скролле ===
 const fadeIns = document.querySelectorAll('.fade-in');
 window.addEventListener('scroll', () => {
@@ -51,12 +53,21 @@ document.querySelectorAll('.blog-entry').forEach(entry => {
 // === Бургер-меню ===
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
+
 if (burger && nav) {
-  burger.addEventListener('click', () => nav.classList.toggle('show'));
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => nav.classList.remove('show'));
+  burger.addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('show');
+    });
   });
 }
+
+
 
 // === Темная тема ===
 const themeToggle = document.createElement('div');
@@ -251,3 +262,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCounter(getStoredValue());
 });
+
+}); // конец DOMContentLoaded
