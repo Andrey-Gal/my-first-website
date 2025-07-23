@@ -57,12 +57,12 @@ const nav = document.getElementById('nav');
 if (burger && nav) {
   burger.addEventListener('click', () => {
     const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('show');
+    navLinks.classList.toggle('active');
   });
 
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.remove('show');
+      document.querySelector('.nav-links').classList.remove('active');
     });
   });
 }
