@@ -107,7 +107,7 @@ window.addEventListener("click", (e) => {
 });
 
 // === Маска телефона и форма записи ===
-window.addEventListener('DOMContentLoaded', () => {
+{
   const phoneInput = document.getElementById('phone');
   const bookingForm = document.getElementById('booking-form');
 
@@ -121,7 +121,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === Обработка формы ===
   if (bookingForm) {
     bookingForm.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -139,25 +138,25 @@ window.addEventListener('DOMContentLoaded', () => {
       if (oldConfirmation) oldConfirmation.remove();
 
       if (!nameValue || !phoneValue || !serviceValue || digitsOnly.length !== 11) {
-        name.reportValidity();
-        phoneField.reportValidity();
-        service.reportValidity();
+        name?.reportValidity?.();
+        phoneField?.reportValidity?.();
+        service?.reportValidity?.();
         return;
       }
 
       const confirmation = document.createElement('p');
-confirmation.id = 'confirmation-message';
-confirmation.className = 'confirmation';
-
+      confirmation.id = 'confirmation-message';
+      confirmation.className = 'confirmation';
       confirmation.textContent = `Спасибо, ${nameValue}! Вы записались на "${serviceValue}". Мы свяжемся с вами по номеру ${phoneValue}.`;
-      confirmation.classList.add('confirmation');
-
 
       bookingForm.after(confirmation);
       bookingForm.reset();
     });
   }
-});
+}
+
+
+  
 
 // === Пасхалка: секретная кнопка ===
 const secretButton = document.createElement('button');
@@ -218,49 +217,4 @@ window.addEventListener('scroll', () => {
   });
 })();
 
-// === Счётчик на about.html с сохранением ===
-document.addEventListener("DOMContentLoaded", () => {
-  const valueEl = document.getElementById("pcValue");
-  const incBtn = document.getElementById("pcInc");
-  const decBtn = document.getElementById("pcDec");
-  const resetBtn = document.getElementById("pcReset");
-  const lastUpdate = document.getElementById("pcLast");
-
-  if (!valueEl || !incBtn || !decBtn || !resetBtn || !lastUpdate) return;
-
-  function animateChange(type) {
-    valueEl.classList.add("flash", type);
-    setTimeout(() => valueEl.classList.remove("flash", type), 400);
-  }
-
-  function updateCounter(val) {
-    localStorage.setItem("persistCounter", val);
-    valueEl.textContent = val;
-    lastUpdate.textContent = "Последнее изменение: " + new Date().toLocaleString();
-  }
-
-  function getStoredValue() {
-    return parseInt(localStorage.getItem("persistCounter")) || 0;
-  }
-
-  incBtn.addEventListener("click", () => {
-    const val = getStoredValue() + 1;
-    updateCounter(val);
-    animateChange("up");
-  });
-
-  decBtn.addEventListener("click", () => {
-    const val = getStoredValue() - 1;
-    updateCounter(val);
-    animateChange("down");
-  });
-
-  resetBtn.addEventListener("click", () => {
-    updateCounter(0);
-    animateChange("reset");
-  });
-
-  updateCounter(getStoredValue());
-});
-
-}); // конец DOMContentLoaded
+}); // <-- закрываем самый первый document.addEventListener("DOMContentLoaded", ...)
