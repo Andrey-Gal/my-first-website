@@ -925,5 +925,46 @@ body.light .booking-form input::placeholder {
   color: #444;
 }
 
+/* чтобы контент не прилипал к футеру */
+main { padding-bottom: 120px; }
+
+/* контейнер для тостов */
+#toasts{
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;         /* поверх футера */
+  pointer-events: none;  /* чтобы не мешали кликам по странице */
+}
+
+/* отдельный тост */
+.toast{
+  max-width: 320px;
+  background: #222;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  line-height: 1.35;
+  word-wrap: break-word;
+  pointer-events: auto;  /* если надо нажимать по тосту */
+  animation: slide-up .25s ease;
+}
+@keyframes slide-up{
+  from{ transform: translateY(8px); opacity: 0; }
+  to  { transform: translateY(0);   opacity: 1; }
+}
+
+/* на узких экранах – наверх, по центру */
+@media (max-width: 600px){
+  #toasts{
+    bottom: auto; top: 10px; right: 10px; left: 10px;
+    align-items: center;
+  }
+  .toast{ width: 100%; max-width: 520px; }
+}
 
 

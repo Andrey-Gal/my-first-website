@@ -156,7 +156,7 @@ window.addEventListener("click", (e) => {
 }
 
 
-  
+
 
 // === Пасхалка: секретная кнопка ===
 const secretButton = document.createElement('button');
@@ -218,3 +218,33 @@ window.addEventListener('scroll', () => {
 })();
 
 }); // <-- закрываем самый первый document.addEventListener("DOMContentLoaded", ...)
+
+const toastQueue = [];
+let showing = false;
+
+function showToast(message, timeout = 3000){
+  toastQueue.push({message, timeout});
+  if (!showing) nextToast();
+}
+
+function nextToast(){
+  const job = toastQueue.shift();
+  if (!job) { showing = false; return; }
+  showing = true;
+
+  const wrap = document.getElementById('toasts');
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = job.message;
+  wrap.appendChild(el);
+
+  setTimeout(() => {
+    el.style.transition = 'opacity .2s ease, transform .2s ease';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-6px)';
+    setTimeout(() => {
+      el.remove();
+      nextToast();
+    }, 220);
+  }, job.timeout);
+}
