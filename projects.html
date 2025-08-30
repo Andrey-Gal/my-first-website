@@ -12,50 +12,67 @@
     <div class="burger" id="burger">☰</div>
     <nav id="nav">
       <a href="index.html">Главная!</a>
-      <a href="projects.html">Проекты</a>
+      <a href="projects.html" aria-current="page">Проекты</a>
       <a href="about.html">Обо мне</a>
     </nav>
   </header>
 
   <main>
-  <section class="fade-in">
-    <h2>Мои проекты</h2>
+    <section class="fade-in">
+      <h2>Мои проекты</h2>
+      <p class="muted">Сборник мини-работ. Новые добавляем сюда карточками.</p>
 
-    <div class="project-card">
-      <img src="images/sayt.JPG" alt="Мой первый сайт" class="project-image" />
-      <h3>Мой первый сайт</h3>
-      <p>Учебный проект на HTML и CSS, опубликован на GitHub Pages.</p>
-      <a href="https://andrey-gal.github.io/my-first-website/" target="_blank">Смотреть</a>
-      <p><a href="projects-cards.html">Вид карточками</a></p>
+      <!-- Popitka 6 -->
+      <div class="project-card">
+        <h3>Popitka 6</h3>
+        <p>Мини-игра: лопни все 36 пузырьков.</p>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JS</span>
+        </div>
+        <a class="btn" href="projects/popitka6/">Открыть</a>
+      </div>
 
-    </div>
+      <!-- Мой первый сайт -->
+      <div class="project-card">
+        <h3>Мой первый сайт</h3>
+        <p>Учебный проект на HTML и CSS, опубликован на GitHub Pages.</p>
+        <a class="btn" href="https://andrey-gal.github.io/my-first-website/" target="_blank" rel="noopener">Смотреть</a>
+      </div>
 
-    <div class="project-card">
-  <img src="images/barber.JPG" alt="Сайт барбершопа" class="project-image" />
-  <h3>Сайт барбершопа</h3>
-  <p>Макет сайта барбершопа с адаптивной версткой.</p>
-  <a href="barbershop.html" class="no-modal">Смотреть проект</a>
-</div>
+      <!-- Барбершоп -->
+      <div class="project-card">
+        <h3>Сайт барбершопа</h3>
+        <p>Макет сайта барбершопа с адаптивной версткой.</p>
+        <a class="btn no-modal" href="barbershop.html">Смотреть проект</a>
+      </div>
 
-  </section>
-</main>
+      <!-- Обо мне -->
+      <div class="project-card">
+        <h3>Обо мне</h3>
+        <p>Короткая визитка.</p>
+        <a class="btn no-modal" href="about.html">Открыть</a>
+      </div>
 
+      <!-- (необязательно) ссылка на старый вид плиткой -->
+      <!-- <p class="view-switch"><a href="projects-tiles.html">Старый вид (плиткой)</a></p> -->
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Андрей Галкин. Все права защищены.</p>
+    <p>© 2025 Андрей Галкин. Все права защищены.</p>
   </footer>
 
-<!-- Модальное окно -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close">&times;</span>
-    <img id="modal-image" src="" alt="Проект" />
-    <p id="modal-description">Описание проекта...</p>
+  <!-- Модалка оставлена, если ею пользуется script.js -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-content">
+      <span class="modal-close" aria-label="Закрыть">&times;</span>
+      <img id="modal-image" src="" alt="Проект" />
+      <p id="modal-description">Описание проекта…</p>
+    </div>
   </div>
-</div>
 
-
-  <script src="script.js?v=124"></script>
-
+  <script src="script.js?v=125"></script>
 </body>
 </html>
