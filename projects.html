@@ -1,25 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Проекты</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root{--bg:#0f0f10; --text:#e9e9ea; --muted:#a8b3cf; --card:#16171a; --stroke:#23252a}
+    *{box-sizing:border-box}
+    body{margin:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    header,main{max-width:1100px; margin:0 auto; padding:24px}
+    a{color:#9ad; text-decoration:none}
+    .grid{display:grid; gap:18px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .card{background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:10px}
+    .card h3{margin:0 0 6px 0}
+    .tags{display:flex; gap:6px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:4px 8px; border:1px solid var(--stroke); border-radius:999px; color:var(--muted)}
+    .actions{margin-top:auto; display:flex; gap:10px}
+    .btn{padding:10px 12px; border:1px solid var(--stroke); border-radius:10px; background:#191a1d; color:#e9e9ea}
+    .btn:hover{background:#1f2024}
+  </style>
 </head>
 <body>
   <header>
-    <h1>Добро пожаловать!</h1>
-    <div class="burger" id="burger">☰</div>
-    <nav id="nav">
-      <a href="index.html">Главная!</a>
-      <a href="projects.html">Проекты</a>
-      <a href="about.html">Обо мне</a>
-    </nav>
+    <a href="index.html">← На главную</a>
+    <h1>Проекты</h1>
+    <p>Сборник мини-работ. Новые добавляем сюда карточками.</p>
   </header>
 
   <main>
-  <section class="fade-in">
-    <h2>Мои проекты</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Popitka 6</h3>
+        <p>Мини-игра: лопни все 36 пузырьков.</p>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JS</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://andrey-gal.github.io/popitka6/" target="_blank" rel="noopener">Открыть</a>
+
 
     <div class="project-card">
       <img src="images/sayt.JPG" alt="Мой первый сайт" class="project-image" />
@@ -37,25 +57,32 @@
   <a href="barbershop.html" class="no-modal">Смотреть проект</a>
 </div>
 
-  </section>
-</main>
+ 
+        </div>
+      </article>
 
 
-  <footer>
-    <p>© 2025 Андрей Галкин. Все права защищены.</p>
-  </footer>
-
-<!-- Модальное окно -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close">&times;</span>
-    <img id="modal-image" src="" alt="Проект" />
-    <p id="modal-description">Описание проекта...</p>
-  </div>
-</div>
+      
 
 
-  <script src="script.js?v=124"></script>
+      <article class="card">
+        <h3>Барбершоп</h3>
+        <p>Статичная страница-макет.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+        <div class="actions">
+          <a class="btn" href="barbershop.html" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </article>
 
+      <article class="card">
+        <h3>Обо мне</h3>
+        <p>Короткая визитка.</p>
+        <div class="tags"><span class="tag">HTML</span></div>
+        <div class="actions">
+          <a class="btn" href="about.html" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </article>
+    </div>
+  </main>
 </body>
 </html>
