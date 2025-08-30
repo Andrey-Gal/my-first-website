@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Popitka 6</title>
+  <style>
+    :root { --cell: 60px; --gap: 10px; --bg:#111; --card:#1b1b1b; --ok:#18c964; --text:#eaeaea; }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text)}
+    header,main{max-width:900px; margin:0 auto; padding:20px}
+    header a{color:#9ad; text-decoration:none}
+    .wrap{background:var(--card); border:1px solid #2a2a2a; border-radius:16px; padding:20px; box-shadow:0 4px 20px rgba(0,0,0,.25)}
+    .toolbar{display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:16px}
+    .toolbar button{padding:10px 14px; border-radius:10px; border:1px solid #333; background:#222; color:#eee; cursor:pointer}
+    .toolbar button:hover{background:#2b2b2b}
+    .stats{opacity:.9; font-size:14px}
+    .board{
+      display:grid; grid-template-columns:repeat(6,var(--cell));
+      gap:var(--gap); justify-content:center; align-items:center; padding:10px;
+    }
+    .bubble{
+      width:var(--cell); height:var(--cell);
+      border-radius:14px; background:linear-gradient(145deg,#2a2a2a,#1a1a1a);
+      border:1px solid #333; box-shadow:inset 6px 6px 10px rgba(0,0,0,.35),
+                                   inset -6px -6px 10px rgba(255,255,255,.03);
+      transition:transform .08s ease, background .2s ease, box-shadow .2s ease;
+      cursor:pointer; position:relative;
+    }
+    .bubble:active{transform:scale(.98)}
+    .bubble.popped{
+      background:linear-gradient(145deg,#103d20,#0d2816);
+      box-shadow:inset 8px 8px 14px rgba(0,0,0,.5),
+                 0 0 0 1px #144a2a, 0 6px 18px rgba(0,0,0,.25);
+      outline:1px solid #1d6c3a;
+    }
+    .done{
+      margin-top:14px; text-align:center; color:var(--ok); font-weight:700; display:none;
+    }
+    .done.show{display:block}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../../projects.html">← Назад к проектам</a>
+    <h1>Popitka 6</h1>
+    <p>Мини-игра: «лопни» все 36 ячеек.</p>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="toolbar">
+        <div class="stats"><span id="counter">0</span> / 36</div>
+        <div>
+          <button id="reset">Сбросить</button>
+        </div>
+      </div>
+      <div id="board" class="board"></div>
+      <div id="done" class="done">Готово! Все пузырьки лопнуты ✅</div>
+    </div>
+  </main>
+
+  <script type="module">
+    const size = 6;
+    const total = size * size;
+    const board = document.getElementById('board');
+    const counter = document.getElementById('counter');
+    const done = document.getElementById('done');
+    const resetBtn = document.getElementById('reset');
+
+    let popped = 0;
+
+    function render() {
+      board.innerHTML = '';
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('div');
+        d.className = 'bubble';
+        d.addEventListener('click', () => {
+          if (!d.classList.toggle('popped')) {
+            popped--;
+          } else {
+            popped++;
+          }
+          counter.textContent = popped;
+          done.classList.toggle('show', popped === total);
+        });
+        board.appendChild(d);
+      }
+      popped = 0;
+      counter.textContent = 0;
+      done.classList.remove('show');
+    }
+
+    resetBtn.addEventListener('click', render);
+    render();
+  </script>
+</body>
+</html>
