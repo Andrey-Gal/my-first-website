@@ -1,23 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Popitka 6 — мини-игра</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <a class="pp6-back" href="../../projects.html">← Назад к проектам</a>
+  <a class="back-to-projects" href="../../projects.html">← Назад к проектам</a>
 
-  <header class="pp6-header">
-    <h1>Popitka 6</h1>
-    <p class="pp6-sub">Мини-игра: лопни все <strong>36</strong> пузырьков.</p>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="title">Popitka 6</h1>
+      <p class="subtitle">Мини-игра: лопни все 36 пузырьков.</p>
+    </div>
   </header>
 
-  <main class="pp6-wrap">
+  <main class="container">
     <div class="pp6-status">
       <span id="pp6-count">0</span> / 36
-      <button id="pp6-reset" class="pp6-btn" type="button">Сбросить</button>
+      <button id="pp6-reset" class="btn secondary" type="button">Сбросить</button>
     </div>
 
     <div id="pp6-grid" class="pp6-grid" aria-label="Сетка из 36 пузырьков"></div>
