@@ -1,0 +1,63 @@
+:root{
+  --bg:#0f1216; --card:#151a21; --text:#e5e7eb; --muted:#9aa4b2;
+  --accent:#22c55e; --accent2:#60a5fa; --dot:#2b3442; --dot-on:#34d399;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg); color:var(--text);
+}
+
+/* Наверх к проектам */
+.pp6-back{
+  display:inline-block; margin:16px; padding:8px 12px; border-radius:10px;
+  background:#1f6feb; color:#fff; text-decoration:none;
+}
+.pp6-back:hover{opacity:.9}
+
+.pp6-header{ text-align:center; padding:12px 16px }
+.pp6-header h1{ margin:6px 0 4px; font-size:clamp(22px,3.5vw,36px) }
+.pp6-sub{ margin:0; color:var(--muted) }
+
+.pp6-wrap{ max-width:900px; margin:0 auto; padding:12px 16px }
+.pp6-status{
+  display:flex; align-items:center; gap:12px; margin:6px 0 12px;
+  font-weight:600;
+}
+.pp6-btn{
+  margin-left:auto; padding:10px 14px; border:0; border-radius:10px;
+  background:#334155; color:#fff; cursor:pointer;
+}
+.pp6-btn:hover{ filter:brightness(1.08) }
+
+/* Сетка 6×6 */
+.pp6-grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(42px,1fr));
+  gap:10px;
+  background:var(--card);
+  border:1px solid #202733;
+  border-radius:16px;
+  padding:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+/* Пузырёк */
+.pp6-dot{
+  aspect-ratio:1/1;
+  border-radius:12px;
+  background:linear-gradient(180deg,#222c3a,#18202c);
+  box-shadow: inset 0 2px 6px rgba(255,255,255,.06), 0 6px 14px rgba(0,0,0,.25);
+  border:1px solid #243044;
+  cursor:pointer;
+  transition: transform .09s ease, filter .15s ease, background .2s ease;
+}
+.pp6-dot:hover{ filter:brightness(1.06) }
+.pp6-dot:active{ transform:translateY(1px) }
+
+.pp6-dot.on{
+  background:radial-gradient(100% 100% at 30% 25%, #53f3a5, #118b5a);
+  border-color:#0c6c46;
+  box-shadow: inset 0 2px 10px rgba(255,255,255,.15), 0 6px 18px rgba(52,211,153,.35);
+}
