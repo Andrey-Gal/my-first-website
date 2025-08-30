@@ -1,0 +1,44 @@
+/* тёмная тема отдельно от основной */
+.cards-body {
+  background: #0e0f13;
+  color: #e9ecf1;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 0;
+}
+.cards-header { position: sticky; top: 0; background: #0e0f13cc; backdrop-filter: blur(4px); border-bottom: 1px solid #1f2230; }
+.cards-nav { max-width: 980px; margin: 0 auto; padding: 14px 16px; display: flex; gap: 16px; align-items: center; }
+.cards-nav a { color: #b9c2d0; text-decoration: none; padding: 6px 10px; border-radius: 8px; }
+.cards-nav a:hover { background: #1a1d29; color: #fff; }
+.cards-nav a.active { background: #1f2434; color: #fff; }
+
+.cards-main { max-width: 980px; margin: 28px auto; padding: 0 16px; }
+.cards-main h1 { font-size: 28px; margin: 0 0 18px; }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+  gap: 16px;
+}
+
+.card {
+  background: #141827;
+  border: 1px solid #24283a;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+.card h3 { margin: 0 0 8px; font-size: 18px; color: #ffffff; }
+.card p { margin: 0 0 12px; color: #c6ccda; line-height: 1.4; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.tags span {
+  font-size: 12px; padding: 4px 8px; border-radius: 999px;
+  background: #1e2436; color: #a9b3c8; border: 1px solid #2a3147;
+}
+
+.btn {
+  display: inline-block; padding: 10px 14px; border-radius: 10px;
+  background: #2b61ff; color: #fff; text-decoration: none; font-weight: 600;
+}
+.btn:hover { filter: brightness(1.08); }
+.cards-footer { max-width: 980px; margin: 24px auto; padding: 0 16px 40px; color: #98a3b8; }
