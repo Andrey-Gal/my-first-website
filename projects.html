@@ -20,43 +20,35 @@
   <main>
     <section class="fade-in">
       <h2>Мои проекты</h2>
-      <p class="muted">Сборник мини-работ. Новые добавляем сюда карточками.</p>
 
-      <!-- Popitka 6 -->
+      <!-- Карточка: Popitka 6 (внешняя ссылка) -->
       <div class="project-card">
+        <img src="images/sayt.JPG" alt="Мой первый сайт" class="project-image" />
         <h3>Popitka 6</h3>
-        <p>Мини-игра: лопни все 36 пузырьков.</p>
-        <div class="tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JS</span>
-        </div>
-        <a class="btn" href="projects/popitka6/">Открыть</a>
+        <p>Мини-игра «лопни все 36 пузырьков». Открывается на GitHub Pages.</p>
+        <a class="btn" href="https://andrey-gal.github.io/popitka6/" target="_blank" rel="noopener">Открыть</a>
       </div>
 
-      <!-- Мой первый сайт -->
+      <!-- Карточка: Барбершоп (локальная страница) -->
       <div class="project-card">
-        <h3>Мой первый сайт</h3>
-        <p>Учебный проект на HTML и CSS, опубликован на GitHub Pages.</p>
-        <a class="btn" href="https://andrey-gal.github.io/my-first-website/" target="_blank" rel="noopener">Смотреть</a>
-      </div>
-
-      <!-- Барбершоп -->
-      <div class="project-card">
-        <h3>Сайт барбершопа</h3>
-        <p>Макет сайта барбершопа с адаптивной версткой.</p>
+        <img src="images/barber.JPG" alt="Сайт барбершопа" class="project-image" />
+        <h3>Барбершоп</h3>
+        <p>Статичная страница-макет с адаптивной вёрсткой.</p>
         <a class="btn no-modal" href="barbershop.html">Смотреть проект</a>
       </div>
 
-      <!-- Обо мне -->
+      <!-- Карточка: Обо мне (локальная страница) -->
       <div class="project-card">
+        <img src="images/sayt.JPG" alt="Страница обо мне" class="project-image" />
         <h3>Обо мне</h3>
-        <p>Короткая визитка.</p>
+        <p>Короткая визитка с контактами и ссылками.</p>
         <a class="btn no-modal" href="about.html">Открыть</a>
       </div>
 
-      <!-- (необязательно) ссылка на старый вид плиткой -->
-      <!-- <p class="view-switch"><a href="projects-tiles.html">Старый вид (плиткой)</a></p> -->
+      <!-- Доп.ссылка на альтернативный вид карточками (если есть эта страница) -->
+      <p style="margin-top: 24px;">
+        <a href="projects-cards.html">Вид карточками</a>
+      </p>
     </section>
   </main>
 
@@ -64,15 +56,15 @@
     <p>© 2025 Андрей Галкин. Все права защищены.</p>
   </footer>
 
-  <!-- Модалка оставлена, если ею пользуется script.js -->
-  <div id="modal" class="modal" hidden>
+  <!-- Модальное окно (оставил как было — вдруг используешь) -->
+  <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="modal-close" aria-label="Закрыть">&times;</span>
+      <span class="modal-close">&times;</span>
       <img id="modal-image" src="" alt="Проект" />
       <p id="modal-description">Описание проекта…</p>
     </div>
   </div>
 
-  <script src="script.js?v=125"></script>
+  <script src="script.js?v=124"></script>
 </body>
 </html>
